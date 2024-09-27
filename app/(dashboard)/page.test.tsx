@@ -30,6 +30,7 @@ describe("Homepage", () => {
       </ClerkProvider>
     );
 
+    expect(false).toBe(true);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
       "Write Your Tests"
     );
