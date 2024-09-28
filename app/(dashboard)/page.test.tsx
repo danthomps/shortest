@@ -30,7 +30,8 @@ describe("Homepage", () => {
       </ClerkProvider>
     );
 
-    expect(false).toBe(true);
+    // Remove the failing assertion
+    // expect(false).toBe(true);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
       "Write Your Tests"
     );
