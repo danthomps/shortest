@@ -30,10 +30,48 @@ describe("Homepage", () => {
       </ClerkProvider>
     );
 
-    // Remove the failing assertion
-    // expect(false).toBe(true);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
       "Write Your Tests"
     );
+  });
+
+  it("renders the SignedOut component", () => {
+    render(
+      <ClerkProvider>
+        <Homepage />
+      </ClerkProvider>
+    );
+
+    expect(screen.getByTestId("signed-out")).toBeInTheDocument();
+  });
+
+  it("renders the SignedIn component", () => {
+    render(
+      <ClerkProvider>
+        <Homepage />
+      </ClerkProvider>
+    );
+
+    expect(screen.getByTestId("signed-in")).toBeInTheDocument();
+  });
+
+  it("renders the correct button text for SignedOut users", () => {
+    render(
+      <ClerkProvider>
+        <Homepage />
+      </ClerkProvider>
+    );
+
+    expect(screen.getByRole("button", { name: /sign in/i })).toBeInTheDocument();
+  });
+
+  it("renders the correct button text for SignedIn users", () => {
+    render(
+      <ClerkProvider>
+        <Homepage />
+      </ClerkProvider>
+    );
+
+    expect(screen.getByRole("button", { name: /go to dashboard/i })).toBeInTheDocument();
   });
 });
